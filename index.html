@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Grid Harjoitus</title>
+    <!--Jquery needs to be loaded before the database addon because it uses the jquery -->
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.min.css">
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.min.js"></script>
+    <!--<script type="text/javascript" src="js/script.js"></script>-->
+    <script type="text/javascript">
+        $(document).ready(function(){
+           $.ajax({
+              url: 'http://niisku.lamk.fi/~informe/informeapi/public/consumers',
+              type: 'GET',
+              success: function(data){
+                  $('#datatable').dataTable({
+                     data: data,
+					 scrollY: 380,
+					 scrollX: true,
+					 
+                     columns: [
+                         {'data': 'id'},
+                         {'data': 'type'},
+                         {'data': 'use'},
+                         {'data': 'volume'},
+                         {'data': 'definition'},
+                         {'data': 'notes'},
+                         {'data': 'ltr_hlo'},
+                         {'data': 'vkr_v'},
+                         {'data': 'hlo'},
+                         {'data': 'heating_kwh_m3'},
+                         {'data': 'lkv_kwh_m2'},
+                         {'data': 'sah_kwh_m2'},
+                         {'data': 'totalarea'},
+                         {'data': 'height'},
+                         {'data': 'powerneed'},
+                         {'data': 'kwh_m3'},
+                         {'data': 'calc_heating'},
+                         {'data': 'heating_kwh'},
+                         {'data': 'lkv_kwh'},
+                         {'data': 'equipment_kwh'},
+                         {'data': 'vehiclefuel_kwh'},
+                         {'data': 'total_kwh'},
+                         {'data': 'kwh_m2'},
+                         {'data': 'kw'},
+                         {'data': 'inpractice'},
+                         {'data': 'x'},
+                         {'data': 'selected_kw'},
+                         {'data': 'amount'},
+                         {'data': 'combinedheating'}
+                     ]
+                  });
+              }
+           });
+        }); 
+    </script>
+	<style>
+	.dataTables_scrollHeadInner{display:block;}
+	#datatable{display: block}
+	</style>
+  </head>
+  <body>
+      <div>
+    <table id="datatable">
+    <thead id="nege">
+        <tr>
+            <!--Name of the column -->
+            <!--More information about this https://www.youtube.com/watch?v=TgD24a9gxXw&t=125s -->
+            <!--"Th" tag gives the name for a column are bold and centered by default-->
+            <!--"Td" tag gives the name for each cell, they are regular and left-aligned by default-->
+            <th>id</th>
+            <th>type</th>
+            <th>use</th>
+            <th>volume</th>
+            <th>definition</th>
+            <th>notes</th>
+            <th>ltr_hlo</th>
+            <th>vkr_v</th>
+            <th>hlo</th>
+            <th>heating_kwh_m3</th>
+            <th>lkv_kwh_m2</th>
+            <th>sah_kwh_m2</th>
+            <th>heatedarea_m2</th>
+            <th>totalarea</th>
+            <th>height</th>
+            <th>powerneed</th>
+            <th>kwh_m3</th>
+            <th>calc_heating</th>
+            <th>heating_kwh</th>
+            <th>lkv_kwh</th>
+            <th>equipment_kwh</th>
+            <th>vehiclefuel_kwh</th>
+            <th>total_kwh</th>
+            <th>kwh_m2</th>
+            <th>kw</th>
+            <th>inpractice</th>
+            <th>x</th>
+            <th>selected_kw</th>
+            <th>amount</th>
+            <th>combinedheating</th>
+        </tr>
+    </thead>
+    <tbody>
+        
+    </tbody>
+</table>
+</div>
+  </body>
+</html>
